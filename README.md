@@ -1,1 +1,1 @@
-#This course is practice for Python 
+#This course is a practice for Python 
