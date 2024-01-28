@@ -1,24 +1,47 @@
 
 class Pelicula:
     def __init__(self, nombre, anio, duracion):
-        self.nombre = nombre.title()
+        self.__nombre = nombre.title()
         self.anio = anio
         self.duracion = duracion
-        self.me_gusta = 0
+        self.__me_gusta = 0
+
+    @property 
+    def nombre(self):
+        return self.__nombre
+    @property
+    def me_gusta(self):
+        return self.__me_gusta
+    
+    #setting for name
+    @nombre.setter
+    def nombre(self, nuevo_nombre):
+        self.__nombre = nuevo_nombre.title()
 
     def gusta(self):
-        self.me_gusta += 1
+        self.__me_gusta += 1
 
 
 class Serie:
     def __init__(self, nombre, anio, temporadas):
-        self.nombre = nombre.title()
+        self.__nombre = nombre.title()
         self.anio = anio
         self.temporadas = temporadas
-        self.me_gusta = 0
+        self.__me_gusta = 0
+
+    @property
+    def nombre(self):
+        return self.__nombre
+    @property
+    def me_gusta(self):
+        return self.__me_gusta
+    
+    @nombre.setter
+    def nombre(self, nuevo_nombre):
+        self.__nombre = nuevo_nombre.title()
 
     def gusta(self):
-        self.me_gusta += 1
+        self.__me_gusta += 1
 
 
 #creando los objetos
