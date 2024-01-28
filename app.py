@@ -1,47 +1,41 @@
+class Multimedia:
+    def __init__(self, nombre, anio):
+        self._nombre = nombre.title()
+        self.anio = anio
+        self._me_gusta = 0
 
-class Pelicula:
+    @property
+    def nombre(self):
+        return self._nombre
+    
+    @property
+    def me_gusta(self):
+        return self._me_gusta
+    
+    #Setting for name
+    @nombre.setter
+    def nombre(self, nuevo_nombre):
+        self._nombre = nuevo_nombre.title()
+
+    def gusta(self):
+        self._me_gusta += 1
+
+
+
+class Pelicula(Multimedia):
     def __init__(self, nombre, anio, duracion):
-        self.__nombre = nombre.title()
-        self.anio = anio
+        super().__init__(nombre, anio)
         self.duracion = duracion
-        self.__me_gusta = 0
-
-    @property 
-    def nombre(self):
-        return self.__nombre
-    @property
-    def me_gusta(self):
-        return self.__me_gusta
-    
-    #setting for name
-    @nombre.setter
-    def nombre(self, nuevo_nombre):
-        self.__nombre = nuevo_nombre.title()
-
-    def gusta(self):
-        self.__me_gusta += 1
+        self._me_gusta = 0
 
 
-class Serie:
+
+class Serie(Multimedia):
     def __init__(self, nombre, anio, temporadas):
-        self.__nombre = nombre.title()
-        self.anio = anio
+        super().__init__(nombre, anio)
         self.temporadas = temporadas
-        self.__me_gusta = 0
+        self._me_gusta = 0
 
-    @property
-    def nombre(self):
-        return self.__nombre
-    @property
-    def me_gusta(self):
-        return self.__me_gusta
-    
-    @nombre.setter
-    def nombre(self, nuevo_nombre):
-        self.__nombre = nuevo_nombre.title()
-
-    def gusta(self):
-        self.__me_gusta += 1
 
 
 #creando los objetos
