@@ -20,6 +20,10 @@ class Multimedia:
     def gusta(self):
         self._me_gusta += 1
 
+    #polimorfismo
+    def imprime(self):
+        print(f'{self.nombre} - {self.anio} - {self._me_gusta} Likes')
+
 
 
 class Pelicula(Multimedia):
@@ -28,6 +32,9 @@ class Pelicula(Multimedia):
         self.duracion = duracion
         self._me_gusta = 0
 
+    def imprime(self):
+        print(f'{self.nombre} - {self.anio} - {self.duracion} min - {self._me_gusta} Likes')
+
 
 
 class Serie(Multimedia):
@@ -35,6 +42,9 @@ class Serie(Multimedia):
         super().__init__(nombre, anio)
         self.temporadas = temporadas
         self._me_gusta = 0
+
+    def imprime(self):
+        print(f'{self.nombre} - {self.anio} - {self.temporadas} temporadas - {self._me_gusta} Likes')
 
 
 
@@ -46,3 +56,10 @@ hl = Serie('Heartland', 2007, 16)
 print(f'El nombre de la pelicula es: {spr.nombre} - el año: {spr.anio} - la duración: {spr.duracion} minutos. Cantidad Likes: {spr.me_gusta}')
 print(f'El nombre de la serie es: {hl.nombre} - el año: {hl.anio} - el numero de temporadas: {hl.temporadas}. Cantidad Likes: {hl.me_gusta}')
 
+
+series_peliculas = [spr,hl]
+
+for multimedia in series_peliculas:
+    #detalles = multimedia.duracion if hasattr(multimedia,'duracion') else multimedia.temporadas
+    #print(f'Nombre: {multimedia.nombre} - Detalles: {detalles} Año: {multimedia.anio}')
+    multimedia.imprime()
