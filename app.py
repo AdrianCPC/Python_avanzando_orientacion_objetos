@@ -21,9 +21,10 @@ class Multimedia:
         self._me_gusta += 1
 
     #polimorfismo
-    def imprime(self):
-        print(f'{self.nombre} - {self.anio} - {self._me_gusta} Likes')
-
+    #def imprime(self):
+        #print(f'{self.nombre} - {self.anio} - {self._me_gusta} Likes')
+    def __str__(self):
+        return f'{self.nombre} - {self.anio} - {self._me_gusta} Likes'
 
 
 class Pelicula(Multimedia):
@@ -32,9 +33,10 @@ class Pelicula(Multimedia):
         self.duracion = duracion
         self._me_gusta = 0
 
-    def imprime(self):
-        print(f'{self.nombre} - {self.anio} - {self.duracion} min - {self._me_gusta} Likes')
-
+    #def imprime(self):
+        #print(f'{self.nombre} - {self.anio} - {self.duracion} min - {self._me_gusta} Likes')
+    def __str__(self):
+        return f'{self.nombre} - {self.anio} - {self.duracion} min - {self._me_gusta} Likes'
 
 
 class Serie(Multimedia):
@@ -43,9 +45,10 @@ class Serie(Multimedia):
         self.temporadas = temporadas
         self._me_gusta = 0
 
-    def imprime(self):
-        print(f'{self.nombre} - {self.anio} - {self.temporadas} temporadas - {self._me_gusta} Likes')
-
+    #def imprime(self):
+        #print(f'{self.nombre} - {self.anio} - {self.temporadas} temporadas - {self._me_gusta} Likes')
+    def __str__(self):
+        return f'{self.nombre} - {self.anio} - {self.temporadas} temporadas - {self._me_gusta} Likes'
 
 
 #creando los objetos
@@ -62,4 +65,4 @@ series_peliculas = [spr,hl]
 for multimedia in series_peliculas:
     #detalles = multimedia.duracion if hasattr(multimedia,'duracion') else multimedia.temporadas
     #print(f'Nombre: {multimedia.nombre} - Detalles: {detalles} Año: {multimedia.anio}')
-    multimedia.imprime()
+    print(multimedia)
