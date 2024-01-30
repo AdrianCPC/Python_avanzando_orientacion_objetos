@@ -3,12 +3,21 @@ class Playlist:
         self._nombre = nombre
         self._multimedia = multimedia
 
-    @property
-    def lista(self):
-        return self._multimedia
-    @property
-    def tamano(self):
+    #@property
+    #def lista(self):
+        #return self._multimedia
+    #@property
+    #def tamano(self):
+        #return len(self._multimedia)
+
+#using dunder (duck typing)
+    def __getitem__(self, item):
+        return self._multimedia[item]
+    
+
+    def __len__(self):
         return len(self._multimedia)
+
 
 
 
@@ -85,5 +94,5 @@ for multimedia in series_peliculas:
 
 playlist_fds = Playlist('Playlist fin de semana', series_peliculas)
 
-for contenido in playlist_fds.lista:
+for contenido in playlist_fds:
     print(contenido)
