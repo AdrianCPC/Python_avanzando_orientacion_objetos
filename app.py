@@ -1,3 +1,17 @@
+class Playlist:
+    def __init__(self, nombre, multimedia):
+        self._nombre = nombre
+        self._multimedia = multimedia
+
+    @property
+    def lista(self):
+        return self._multimedia
+    @property
+    def tamano(self):
+        return len(self._multimedia)
+
+
+
 class Multimedia:
     def __init__(self, nombre, anio):
         self._nombre = nombre.title()
@@ -55,14 +69,21 @@ class Serie(Multimedia):
 
 spr = Pelicula('Salvando al soldado ryan', 1998, 170)
 hl = Serie('Heartland', 2007, 16)
+kb = Pelicula('kill bill', 2002, 120)
+dark = Serie('dark', 2016,3)
 
-print(f'El nombre de la pelicula es: {spr.nombre} - el año: {spr.anio} - la duración: {spr.duracion} minutos. Cantidad Likes: {spr.me_gusta}')
-print(f'El nombre de la serie es: {hl.nombre} - el año: {hl.anio} - el numero de temporadas: {hl.temporadas}. Cantidad Likes: {hl.me_gusta}')
+#print(f'El nombre de la pelicula es: {spr.nombre} - el año: {spr.anio} - la duración: {spr.duracion} minutos. Cantidad Likes: {spr.me_gusta}')
+#print(f'El nombre de la serie es: {hl.nombre} - el año: {hl.anio} - el numero de temporadas: {hl.temporadas}. Cantidad Likes: {hl.me_gusta}')
 
 
-series_peliculas = [spr,hl]
+series_peliculas = [spr,hl, kb, dark]
 
 for multimedia in series_peliculas:
     #detalles = multimedia.duracion if hasattr(multimedia,'duracion') else multimedia.temporadas
     #print(f'Nombre: {multimedia.nombre} - Detalles: {detalles} Año: {multimedia.anio}')
     print(multimedia)
+
+playlist_fds = Playlist('Playlist fin de semana', series_peliculas)
+
+for contenido in playlist_fds.lista:
+    print(contenido)
