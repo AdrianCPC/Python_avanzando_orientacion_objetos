@@ -7,11 +7,12 @@ class ExtractorURL:
 
         #Limpiar URL
     def limpia_url(self,url):
-        return url.strip()
+        if type(url) == str:
+            return url.strip()
     
     #Validar URL
     def valida_url(self):
-        if self.url == '':
+        if not self.url:            
             raise ValueError('La URL esta vacia')
     
     #Obtencion URL base
@@ -40,8 +41,8 @@ class ExtractorURL:
 
      
 
+#URL = 'https://www.bytebank.com/cambio?monedaOrigen=usd&monedaDestino=cop&cantidad=100&operacion=venta'
 
-
-extractor_url = ExtractorURL('https://www.bytebank.com/cambio?monedaOrigen=usd&monedaDestino=cop&cantidad=100&operacion=venta')
+extractor_url = ExtractorURL('')
 valor_parametro = extractor_url.get_valor_parametro('cantidad')
 print(valor_parametro)
