@@ -1,3 +1,5 @@
+import re
+
 #Clase que sirva para limpiar, validar, obtener la url base y los parametros ademas del valor de los parametros
 class ExtractorURL:
     #constructor
@@ -9,11 +11,18 @@ class ExtractorURL:
     def limpia_url(self,url):
         if type(url) == str:
             return url.strip()
+        else:
+            return ''
     
     #Validar URL
     def valida_url(self):
-        if not self.url:            
+        if not self.url:
             raise ValueError('La URL esta vacia')
+        
+        patron_url = re.compile('(http(s)?://)?(www.)?bytebank.com(.mx)?/cambio')
+        match = patron_url.match(self.url)
+        if not match:
+            print('La url no es invalida')
     
     #Obtencion URL base
     def get_base(self):
@@ -38,11 +47,29 @@ class ExtractorURL:
             valor = self.get_parametros()[indice_valor:indice_and]
 
         return valor
+'''
+Ejemplos de URLs válidas:
+    bytebank.com/cambio
+    bytebank.com.mx/cambio
+    www.bytebank.com/cambio
+    www.bytebank.com.mx/cambio
+    http://www.bytebank.com/cambio
+    http://www.bytebank.com.mx/cambio
+    https://www.bytebank.com/cambio
+    https://www.bytebank.com.mx/cambio
 
-     
+Ejemplos de URL inválidas:
+    https://bytebank/cambio
+    http://bytebank.noexiste/cambio
+    ht:bytebank.noexiste/cambio
+
+'''
 
 #URL = 'https://www.bytebank.com/cambio?monedaOrigen=usd&monedaDestino=cop&cantidad=100&operacion=venta'
 
-extractor_url = ExtractorURL('')
-valor_parametro = extractor_url.get_valor_parametro('cantidad')
-print(valor_parametro)
+extractor_url = ExtractorURL('https://www.bytebank.com/cambio?monedaOrigen=usd&monedaDestino=cop&cantidad=100&operacion=venta')
+#valor_parametro = extractor_url.get_valor_parametro('cantidad')
+#print(valor_parametro)
+
+
+
