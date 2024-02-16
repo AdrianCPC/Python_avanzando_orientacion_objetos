@@ -47,6 +47,13 @@ class ExtractorURL:
             valor = self.get_parametros()[indice_valor:indice_and]
 
         return valor
+    
+    def __len__(self):
+        return len(self.url)
+        
+    def __str__(self):
+        return self.url + '\n Url base: ' + self.get_base() + '\n Parametros: ' + self.get_parametros()
+    
 '''
 Ejemplos de URLs válidas:
     bytebank.com/cambio
@@ -67,9 +74,10 @@ Ejemplos de URL inválidas:
 
 #URL = 'https://www.bytebank.com/cambio?monedaOrigen=usd&monedaDestino=cop&cantidad=100&operacion=venta'
 
-extractor_url = ExtractorURL('https://www.bytebank.com/cambio?monedaOrigen=usd&monedaDestino=cop&cantidad=100&operacion=venta')
+extractor_url = ExtractorURL('bytebank.com/cambio?monedaOrigen=usd&monedaDestino=cop&cantidad=100&operacion=venta')
 #valor_parametro = extractor_url.get_valor_parametro('cantidad')
 #print(valor_parametro)
+print(len(extractor_url))
 
 
 
