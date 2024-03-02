@@ -51,3 +51,18 @@ cuentas = [cuenta_alvaro,cuenta_stef]
 for cuenta in cuentas:
     print(f'El espacio de memoria es: {id(cuenta)}')
     print(cuenta)
+    
+#depositando a todas las cuentas
+def deposita_a_todos(cuentas):
+    for cuenta in cuentas:
+        cuenta.deposito(100)
+        
+cuentas = [cuenta_alvaro,cuenta_stef,cuenta_alvaro]
+
+deposita_a_todos(cuentas)
+
+for cuenta in cuentas:
+    print(f'EL espacio de memoria es: {id(cuenta)}')
+    print(cuenta)
+    
+#Usando tuplas
