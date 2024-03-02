@@ -49,4 +49,5 @@ cuenta_stef.deposito(1000.0)
 cuentas = [cuenta_alvaro,cuenta_stef]
 
 for cuenta in cuentas:
+    print(f'El espacio de memoria es: {id(cuenta)}')
     print(cuenta)
