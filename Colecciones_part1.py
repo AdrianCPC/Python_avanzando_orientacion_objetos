@@ -115,3 +115,75 @@ for cuenta in cuentas:
 import numpy as np
 numeros = np.array([1,2.5])
 numeros
+
+
+
+#Igualdad e identidad
+class CuentaSalario:
+    def __init__(self, codigo):
+        self.codigo = codigo
+        self._saldo = 0
+        
+    def deposita(self, valor):
+        self._valor += valor
+        
+    def __str__(self):
+        return f'>>>Código: {self.codigo} --- Saldo: {self._saldo}<<<'
+    
+salario_alvaro = CuentaSalario(15)
+salario_stephany = CuentaSalario(15)
+
+salario_alvaro == salario_stephany #False
+
+#Definiendo metodo para la igualdad
+
+class CuentaSalario:
+    def __init__(self, codigo):
+        self._codigo = codigo
+        self._saldo = 0
+    
+    def __eq__(self, otro):
+        return self._codigo==otro._codigo
+    
+    def deposita(self, valor):
+        self._saldo += valor
+        
+        
+    def __str__(self) -> str:
+        return f'>>>Código: {self._codigo} -- Saldo: {self._saldo}'
+
+
+salario_alvaro = CuentaSalario(15)
+salario_stephany = CuentaSalario(15)
+
+salarios = [salario_alvaro,salario_stephany]
+
+for salario in salarios:
+    print(id(salario))
+    print(salario)
+    
+salario_alvaro == salario_stephany
+
+#manera correcta
+
+class CuentaSalario:
+    def __init__(self,codigo):
+        self._codigo = codigo
+        self._saldo = 0
+        
+    def __eq__(self, otro):
+        if type(otro) != CuentaSalario:
+            return False
+        return self._codigo == otro._codigo
+    
+    def deposita(self, valor):
+        self._saldo += valor
+        
+    def _str_(self):
+        return f'>>>Código: {self._codigo} --  Saldo: {self._saldo}'
+    
+salario_alvaro = CuentaSalario(15)
+salario_stephany = CuentaSalario(15)
+corriente_alvaro = CuentaCorriente(15)
+
+corriente_alvaro == salario_alvaro
