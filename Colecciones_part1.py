@@ -110,3 +110,8 @@ cuentas = [cuenta_alvaro,cuenta_stef, cuenta_inversiones]
 
 for cuenta in cuentas:
     print(cuenta)
+    
+#Arrays con numpy y no con el modulo array
+import numpy as np
+numeros = np.array([1,2.5])
+numeros
