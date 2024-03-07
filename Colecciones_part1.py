@@ -187,3 +187,15 @@ salario_stephany = CuentaSalario(15)
 corriente_alvaro = CuentaCorriente(15)
 
 corriente_alvaro == salario_alvaro
+
+
+#orden de listas
+edades.sort()
+edades
+
+nombres = ['Alvaro','Stephany','Pablo']
+for nombre in nombres:
+    print(ord(nombre[0]))
+    
+
+
