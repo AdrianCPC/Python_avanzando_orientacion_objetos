@@ -22,3 +22,24 @@ usuarios_sin_ml
 
 #usuarios que hicerion ml pero no ds
 set(usuarios_ds) ^ set(usuarios_ml)
+
+
+#Creacion de conjuntos
+usuarios = {1,5,32,68,78,99,37}
+
+25 in usuarios
+
+
+frecuencias = {
+    'Alvaro': 2,
+    'encanta': 2,
+    'me': 1,
+    '2':1,
+}
+
+frecuencias.get('gusta',0)
+
+frecuencias['Carlos'] = 5
+frecuencias
+
+#defaultdic
